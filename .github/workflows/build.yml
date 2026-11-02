@@ -1,0 +1,28 @@
+name: Simple Build Simulation Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Start Build Process
+        run: echo "Build Process Started"
+
+      - name: Create Build Directory
+        run: mkdir build
+
+      - name: Copy Application File
+        run: cp app.txt build/
+
+      - name: Display Copied File
+        run: cat build/app.txt
+
+      - name: Complete Build Process
+        run: echo "Build Process Completed Successfully"
